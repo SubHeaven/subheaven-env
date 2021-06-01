@@ -28,7 +28,7 @@ require('subheaven-tools');
             console.log("");
             console.log('Example:');
             await params_needed.forEachAsync(async item => {
-                console.log(`${item.name} = ${item.sample}`);
+                console.log(`${item.name}=${item.sample}`);
             });
             process.exit(1);
         }
@@ -39,7 +39,7 @@ require('subheaven-tools');
     };
     exports.addParams = async(params) => {
         if (Array.isArray(params)) {
-            params_needed = params;
+            params_needed = [...params_needed, ...params];
         } else {
             throw new Error("addParams(params) param need to be an array! You can try and use addParam(param) instead.");
         }
